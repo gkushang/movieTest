@@ -2,7 +2,7 @@ package com.something.guice.module;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
-import com.something.api.movie.restclient.MoviesRestClient;
+import com.something.api.restclient.MoviesRestClient;
 import com.something.guice.providers.MoviesRestClientProvider;
 import com.something.guice.providers.PropertiesProvider;
 import com.something.guice.providers.RestClientProvider;

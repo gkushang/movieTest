@@ -1,6 +1,5 @@
-package com.something.api.movie.restclient;
+package com.something.api.restclient;
 
-import java.text.MessageFormat;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -9,7 +8,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.something._shared_lib.CustomRestClient;
 import com.something._shared_lib.CustomRestClientException;
-import com.something.api.movie.domain.Movie;
+import com.something.api.domain.Movie;
 import com.something.utils.Properties;
 
 public class MoviesRestClient
@@ -24,14 +23,6 @@ public class MoviesRestClient
     {
         this.customRestClient = customRestClient;
         this.properties = properties;
-    }
-
-    public Movie getMovieById( int id )
-                    throws CustomRestClientException
-    {
-        String url = MessageFormat.format( (String) properties.get( "host" ), id );
-
-        return customRestClient.httpGet( url, Movie.class );
     }
 
     public Movie[] searchMoviesBy( Map<String, Object> requestParams )
@@ -72,8 +63,7 @@ public class MoviesRestClient
     public Movie[] getMovies()
                     throws CustomRestClientException
     {
-        String url = _buildUrl();
-        return customRestClient.httpGet( url, Movie[].class );
+        return customRestClient.httpGet( _buildUrl(), Movie[].class );
     }
 
 }

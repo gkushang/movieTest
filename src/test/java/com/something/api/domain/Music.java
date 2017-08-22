@@ -1,4 +1,4 @@
-package com.something.api.movie.domain;
+package com.something.api.domain;
 
 import java.util.ArrayList;
 import java.util.List;

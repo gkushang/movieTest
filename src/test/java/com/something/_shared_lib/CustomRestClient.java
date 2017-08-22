@@ -30,7 +30,8 @@ public class CustomRestClient
                     throws CustomRestClientException
     {
         final HttpEntity<T> request = new HttpEntity<>( this.header );
-        return (T) this.rest( url, HttpMethod.GET, request, cls ).getBody();
+        ResponseEntity response = this.rest( url, HttpMethod.GET, request, cls );
+        return (T) response.getBody();
     }
 
     public <T> T httpGet( String url, Class<T> cls, Map<String, Object> requestParameters )

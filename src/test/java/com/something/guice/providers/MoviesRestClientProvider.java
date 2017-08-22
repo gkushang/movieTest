@@ -2,7 +2,7 @@ package com.something.guice.providers;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import com.something.api.movie.restclient.MoviesRestClient;
+import com.something.api.restclient.MoviesRestClient;
 import com.something._shared_lib.CustomRestClient;
 import com.something.utils.Properties;
 

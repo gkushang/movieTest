@@ -1,4 +1,4 @@
-package com.something.api.movie.domain;
+package com.something.api.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
