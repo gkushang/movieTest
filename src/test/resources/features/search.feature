@@ -16,6 +16,6 @@ Feature: Search the movie
   @search_one_movie
   Scenario: Fred searches for the movie
 
-    Given movie library has 3 entries of "Avon" movie
-    When Fred searches for the "Avon" movie
-    Then he gets "3" movies only
+    Given movie library has 1 entries of "Sultan" movie
+    When Fred searches for the "Sultan" movie
+    Then he gets "1" movies from search

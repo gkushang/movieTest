@@ -30,7 +30,8 @@ public class CustomRestClient
                     throws CustomRestClientException
     {
         final HttpEntity<T> request = new HttpEntity<>( this.header );
-        ResponseEntity response = this.rest( url, HttpMethod.GET, request, cls );
+
+        ResponseEntity response = this.exchange( url, HttpMethod.GET, request, cls );
         return (T) response.getBody();
     }
 
@@ -41,7 +42,7 @@ public class CustomRestClient
         return this.httpGet( url, cls );
     }
 
-    private <T> ResponseEntity rest( String url, HttpMethod method, HttpEntity<T> request, Class cls )
+    private <T> ResponseEntity exchange( String url, HttpMethod method, HttpEntity<T> request, Class cls )
                     throws CustomRestClientException
     {
         LOG.info( "requestParameters: " + requestParameters );
@@ -49,6 +50,14 @@ public class CustomRestClient
         return requestParameters.isEmpty() ?
                         this.restTemplate.exchange( url, method, request, cls ) :
                         this.restTemplate.exchange( url, method, request, cls, requestParameters );
+    }
+
+    public <T> T httpPost( String url, T body )
+                    throws CustomRestClientException
+    {
+        HttpEntity<T> request = new HttpEntity<>( body, this.header );
+
+        return (T) exchange( url, HttpMethod.POST, request, body.getClass() ).getBody();
     }
 
 }

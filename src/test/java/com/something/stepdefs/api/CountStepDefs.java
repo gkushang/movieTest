@@ -43,11 +43,4 @@ public class CountStepDefs
         assertThat( "count is not equal", count, is( numberOfMovies ) );
     }
 
-    @Then( "^he gets \"(.*?)\" movies only$" )
-    public void he_gets_movies_only( int numberOfMovies )
-                    throws Throwable
-    {
-        assertThat( "number of movies are incorrect", movies.length, is( numberOfMovies ) );
-    }
-
 }

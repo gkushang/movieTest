@@ -28,7 +28,9 @@ public class MoviesRestClient
     public Movie[] searchMoviesBy( Map<String, Object> requestParams )
                     throws CustomRestClientException
     {
-        return customRestClient.httpGet( _buildUrlWithQueryParams( requestParams ), Movie[].class, requestParams );
+        String url = _buildUrlWithQueryParams( requestParams );
+
+        return customRestClient.httpGet( url, Movie[].class );
     }
 
     private String _buildUrlWithQueryParams( Map<String, Object> requestParams )
@@ -64,6 +66,17 @@ public class MoviesRestClient
                     throws CustomRestClientException
     {
         return customRestClient.httpGet( _buildUrl(), Movie[].class );
+    }
+
+    public Movie insertMovie()
+                    throws CustomRestClientException
+    {
+        Movie movie = new Movie();
+
+        //        movie.setName( "Sultan" );
+        movie.setId( 1100 );
+
+        return customRestClient.httpPost( _buildUrl(), movie );
     }
 
 }

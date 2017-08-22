@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith( Cucumber.class )
 @CucumberOptions( format = { "pretty" },
                 glue = "com.something.stepdefs.api",
-                strict = true,
+                strict = false,
                 tags = { "~@wip" } )
 
 public abstract class CucumberApiTest
