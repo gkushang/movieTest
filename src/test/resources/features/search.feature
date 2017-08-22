@@ -1,8 +1,21 @@
 Feature: Search the movie
 
-  @count_movies
-  Scenario: Fred counts the movies
+  @search_multiple_movies
+  Scenario Outline: Fred searches for the movie
 
-    Given Fred creates the library with 100 movies
-    When he counts total number of movies
-    Then he gets 100 count
+    Given movie library has 3 entries of "<name>" movie
+    When Fred searches for the "<name>" movie
+    Then he gets "<count>" movies only
+
+    Examples:
+      | name    | count |
+      | Avon    | 3     |
+      | connect | 3     |
+
+
+  @search_one_movie
+  Scenario: Fred searches for the movie
+
+    Given movie library has 3 entries of "Avon" movie
+    When Fred searches for the "Avon" movie
+    Then he gets "3" movies only

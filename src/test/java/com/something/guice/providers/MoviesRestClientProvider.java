@@ -3,7 +3,7 @@ package com.something.guice.providers;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.something.api.movie.restclient.MoviesRestClient;
-import com.something.lib.RestClient;
+import com.something._shared_lib.CustomRestClient;
 import com.something.utils.Properties;
 
 public class MoviesRestClientProvider
@@ -12,19 +12,19 @@ public class MoviesRestClientProvider
 
     private final Properties properties;
 
-    private final RestClient restClient;
+    private final CustomRestClient customRestClient;
 
     @Inject
-    public MoviesRestClientProvider( Properties properties, RestClient restClient )
+    public MoviesRestClientProvider( Properties properties, CustomRestClient customRestClient )
     {
 
         this.properties = properties;
-        this.restClient = restClient;
+        this.customRestClient = customRestClient;
     }
 
     @Override
     public MoviesRestClient get()
     {
-        return new MoviesRestClient( properties, restClient );
+        return new MoviesRestClient( properties, customRestClient );
     }
 }

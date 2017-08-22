@@ -4,18 +4,18 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 import com.google.inject.Provider;
-import com.something.lib.RestClient;
+import com.something._shared_lib.CustomRestClient;
 
 public class RestClientProvider
-                implements Provider<RestClient>
+                implements Provider<CustomRestClient>
 {
 
     @Override
-    public RestClient get()
+    public CustomRestClient get()
     {
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
         headers.add( "Accept", "application/json" );
 
-        return new RestClient(headers);
+        return new CustomRestClient(headers);
     }
 }
