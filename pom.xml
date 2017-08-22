@@ -16,7 +16,7 @@
         <maven.compiler.source>${jdk.version}</maven.compiler.source>
         <maven.compiler.target>${jdk.version}</maven.compiler.target>
         <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
-        <parallel.test.count>100</parallel.test.count>
+        <parallel.test.count>10</parallel.test.count>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <info.cukes.version>1.1.7</info.cukes.version>
         <org.seleniumhq.selenium.version>2.53.1</org.seleniumhq.selenium.version>
@@ -162,7 +162,6 @@
                             <threadCountClasses>${parallel.test.count}</threadCountClasses>
                             <useUnlimitedThreads>false</useUnlimitedThreads>
                             <argLine>-Xmx1024m</argLine>
-                            <argLine>-XX:MaxPermSize=256m</argLine>
                             <includes>
                                 <include>**/Run_*Smoke*.java</include>
                             </includes>
